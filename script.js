@@ -128,7 +128,7 @@ function resetTable(){
     try_four_to_five.innerText = 0; 
     try_five_to_six.innerText = 0;
     try_six_to_seven.innerText = 0;
-    try_seven_to_eight.innerText
+    try_seven_to_eight.innerText = 0;
     try_eight_to_nine.innerText = 0; 
     try_nine_to_ten.innerText = 0; 
     try_ten_to_eleven.innerText = 0; 

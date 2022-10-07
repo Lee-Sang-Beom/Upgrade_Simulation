@@ -10,7 +10,7 @@ Project - Upgrade Simulation
       - 초기화 하기
       - 강화 확률표 : 강화 수치 별 시도횟수 기록
 
-	2. Titile : TypeIt animation 제공
+	2. TypeIt lib : TypeIt animation 제공
 
 ### - 한계 및 발전
 	* UX적인 고민

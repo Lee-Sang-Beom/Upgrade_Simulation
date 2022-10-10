@@ -173,7 +173,7 @@ function try_upgrade(){
 
             if(current_level === MAX_LEVEL){
                 // MAX_LEVEL 달성 시, 사용자가 버튼 클릭을 하지 못하도록 변경 
-                alert(`최대 강화 레벨을 당설하셨습니다.`);
+                alert(`최대 강화 레벨을 달성하셨습니다.`);
                 try_btn.disabled = true;
 
                 // current_level === 20 일때, 확률표기

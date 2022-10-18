@@ -1,217 +1,213 @@
 // 현 강화상태를 저장하는 변수
-let current_upgrade_level = document.getElementById('current_figure');
+const currentUpgradeLevel = document.getElementById('current_figure');
 
 // 현 강화상태에서 성공 | 실패확률을 표현하는 변수
-let sucess_rate_figure = document.getElementById('sucess_rate_figure');
-let fail_rate_figure = document.getElementById('fail_rate_figure');
+const sucessRateFigure = document.getElementById('sucess_rate_figure');
+const failRateFigure = document.getElementById('fail_rate_figure');
 
 // 최대강화레벨
 const MAX_LEVEL = 20;
 
 // '강화하기' 버튼
-const try_btn = document.getElementById('try_btn');
+const tryBtn = document.getElementById('try_btn');
 
 // '리셋하기' 버튼
-const reset_btn = document.getElementById('reset_btn');
+const resetBtn = document.getElementById('reset_btn');
 
 // 단계별 성공확률
-const suceess_rate_array = [100,95,90,85,80,75,70,60,50,40,35,30,25,20,15,10,5,3,2,1];
+const suceessRateArray = [100, 95, 90, 85, 80, 75, 70, 60, 50, 40, 35, 30, 25, 20, 15, 10, 5, 3, 2, 1];
 
 // 시도횟수 저장 배열
-const try_count_array = Array.from(new Array(20), (v,k)=>{
+const tryCountArray = Array.from(new Array(20), (v, k) => {
     return 0;
-})
+});
 
 // 현재 강화단계
-let current_level = 0;
+let currentLevel = 0;
 
 // table 내, 강화시도 횟수 기록변수
-let try_zero_to_one= document.getElementById('try_zero_to_one');
-let try_one_to_two =document.getElementById('try_one_to_two');
-let try_two_to_three = document.getElementById('try_two_to_three');
-let try_three_to_four = document.getElementById('try_three_to_four');
-let try_four_to_five = document.getElementById('try_four_to_five');
-let try_five_to_six = document.getElementById('try_five_to_six');
-let try_six_to_seven = document.getElementById('try_six_to_seven');
-let try_seven_to_eight = document.getElementById('try_seven_to_eight');
-let try_eight_to_nine = document.getElementById('try_eight_to_nine');
-let try_nine_to_ten = document.getElementById('try_nine_to_ten');
-let try_ten_to_eleven = document.getElementById('try_ten_to_eleven');
-let try_eleven_to_twelve = document.getElementById('try_eleven_to_twelve');
-let try_twelve_to_thirteen = document.getElementById('try_twelve_to_thirteen');
-let try_thirteen_to_fourteen = document.getElementById('try_thirteen_to_fourteen');
-let try_fourteen_to_fifteen = document.getElementById('try_fourteen_to_fifteen');
-let try_fifteen_to_sixteen = document.getElementById('try_fifteen_to_sixteen');
-let try_sixteen_to_seventeen = document.getElementById('try_sixteen_to_seventeen');
-let try_seventeen_to_eighteen = document.getElementById('try_seventeen_to_eighteen');
-let try_eighteen_to_nineteen = document.getElementById('try_eighteen_to_nineteen');
-let try_nineteen_to_twenty = document.getElementById('try_nineteen_to_twenty');
+const tryZeroToOne = document.getElementById('try_zero_to_one');
+const tryOneToTwo = document.getElementById('try_one_to_two');
+const tryTwoToThree = document.getElementById('try_two_to_three');
+const tryThreeToFour = document.getElementById('try_three_to_four');
+const tryFourToFive = document.getElementById('try_four_to_five');
+const tryFiveToSix = document.getElementById('try_five_to_six');
+const trySixToSeven = document.getElementById('try_six_to_seven');
+const trySevenToEight = document.getElementById('try_seven_to_eight');
+const tryEightToNine = document.getElementById('try_eight_to_nine');
+const tryNineToTen = document.getElementById('try_nine_to_ten');
+const tryTenToEleven = document.getElementById('try_ten_to_eleven');
+const tryElevenToTwelve = document.getElementById('try_eleven_to_twelve');
+const tryTwelveToThirteen = document.getElementById('try_twelve_to_thirteen');
+const tryThirteenToFourteen = document.getElementById('try_thirteen_to_fourteen');
+const tryFourteenToFifteen = document.getElementById('try_fourteen_to_fifteen');
+const tryFifteenToSixteen = document.getElementById('try_fifteen_to_sixteen');
+const trySixteenToSeventeen = document.getElementById('try_sixteen_to_seventeen');
+const trySeventeenToEighteen = document.getElementById('try_seventeen_to_eighteen');
+const tryEighteenToNineteen = document.getElementById('try_eighteen_to_nineteen');
+const tryNineteenToTwenty = document.getElementById('try_nineteen_to_twenty');
 
-function overallSwitchTable(current_level){
-
-    if(current_level < 20){
-        switch(current_level){
-            case 0:
-                try_zero_to_one.innerText = try_count_array[current_level];
-                return;
-            case 1:
-                try_one_to_two.innerText = try_count_array[current_level];
-                return;
-            case 2:
-                try_two_to_three.innerText = try_count_array[current_level];
-                return;
-            case 3:
-                try_three_to_four.innerText = try_count_array[current_level];
-                return;
-            case 4:
-                try_four_to_five.innerText = try_count_array[current_level];
-                return;
-            case 5:
-                try_five_to_six.innerText = try_count_array[current_level];
-                return;
-            case 6:
-                try_six_to_seven.innerText = try_count_array[current_level];
-                return;
-            case 7:
-                try_seven_to_eight.innerText = try_count_array[current_level];
-                return;
-            case 8:
-                try_eight_to_nine.innerText = try_count_array[current_level];
-                return;
-            case 9:
-                try_nine_to_ten.innerText = try_count_array[current_level];
-                return;
-            case 10:
-                try_ten_to_eleven.innerText = try_count_array[current_level];
-                return;
-            case 11:
-                try_eleven_to_twelve.innerText = try_count_array[current_level];
-                return;
-            case 12:
-                try_twelve_to_thirteen.innerText = try_count_array[current_level];
-                return;
-            case 13:
-                try_thirteen_to_fourteen.innerText = try_count_array[current_level];
-                return;
-            case 14:
-                try_fourteen_to_fifteen.innerText = try_count_array[current_level];
-                return;
-            case 15:
-                try_fifteen_to_sixteen.innerText = try_count_array[current_level];
-                return;
-            case 16:
-                try_sixteen_to_seventeen.innerText = try_count_array[current_level];
-                return;
-            case 17:
-                try_seventeen_to_eighteen.innerText = try_count_array[current_level];
-                return;
-            case 18:
-                try_eighteen_to_nineteen.innerText = try_count_array[current_level];
-                return;
-            case 19:
-                try_nineteen_to_twenty.innerText = try_count_array[current_level];
-                return;
-            default:
-                return;
+function overallSwitchTable(currentLevel) {
+    if(currentLevel < 20) {
+        switch(currentLevel) {
+        case 0:
+            tryZeroToOne.innerText = tryCountArray[currentLevel];
+            return;
+        case 1:
+            tryOneToTwo.innerText = tryCountArray[currentLevel];
+            return;
+        case 2:
+            tryTwoToThree.innerText = tryCountArray[currentLevel];
+            return;
+        case 3:
+            tryThreeToFour.innerText = tryCountArray[currentLevel];
+            return;
+        case 4:
+            tryFourToFive.innerText = tryCountArray[currentLevel];
+            return;
+        case 5:
+            tryFiveToSix.innerText = tryCountArray[currentLevel];
+            return;
+        case 6:
+            trySixToSeven.innerText = tryCountArray[currentLevel];
+            return;
+        case 7:
+            trySevenToEight.innerText = tryCountArray[currentLevel];
+            return;
+        case 8:
+            tryEightToNine.innerText = tryCountArray[currentLevel];
+            return;
+        case 9:
+            tryNineToTen.innerText = tryCountArray[currentLevel];
+            return;
+        case 10:
+            tryTenToEleven.innerText = tryCountArray[currentLevel];
+            return;
+        case 11:
+            tryElevenToTwelve.innerText = tryCountArray[currentLevel];
+            return;
+        case 12:
+            tryTwelveToThirteen.innerText = tryCountArray[currentLevel];
+            return;
+        case 13:
+            tryThirteenToFourteen.innerText = tryCountArray[currentLevel];
+            return;
+        case 14:
+            tryFourteenToFifteen.innerText = tryCountArray[currentLevel];
+            return;
+        case 15:
+            tryFifteenToSixteen.innerText = tryCountArray[currentLevel];
+            return;
+        case 16:
+            trySixteenToSeventeen.innerText = tryCountArray[currentLevel];
+            return;
+        case 17:
+            trySeventeenToEighteen.innerText = tryCountArray[currentLevel];
+            return;
+        case 18:
+            tryEighteenToNineteen.innerText = tryCountArray[currentLevel];
+            return;
+        case 19:
+            tryNineteenToTwenty.innerText = tryCountArray[currentLevel];
+            return;
+            
+        default:
+            return undefined;
         }
     } else{
-        return;
+        // else
     }
-    
 }
 
-function resetTable(){
-    try_zero_to_one.innerText = 0; 
-    try_one_to_two.innerText = 0; 
-    try_two_to_three.innerText = 0; 
-    try_three_to_four.innerText = 0; 
-    try_four_to_five.innerText = 0; 
-    try_five_to_six.innerText = 0;
-    try_six_to_seven.innerText = 0;
-    try_seven_to_eight.innerText = 0;
-    try_eight_to_nine.innerText = 0; 
-    try_nine_to_ten.innerText = 0; 
-    try_ten_to_eleven.innerText = 0; 
-    try_eleven_to_twelve.innerText = 0; 
-    try_twelve_to_thirteen.innerText = 0; 
-    try_thirteen_to_fourteen.innerText = 0; 
-    try_fourteen_to_fifteen.innerText = 0; 
-    try_fifteen_to_sixteen.innerText = 0; 
-    try_sixteen_to_seventeen.innerText = 0; 
-    try_seventeen_to_eighteen.innerText = 0; 
-    try_eighteen_to_nineteen.innerText = 0; 
-    try_nineteen_to_twenty.innerText = 0; 
+function resetTable() {
+    tryZeroToOne.innerText = 0; 
+    tryOneToTwo.innerText = 0; 
+    tryTwoToThree.innerText = 0; 
+    tryThreeToFour.innerText = 0; 
+    tryFourToFive.innerText = 0; 
+    tryFiveToSix.innerText = 0;
+    trySixToSeven.innerText = 0;
+    trySevenToEight.innerText = 0;
+    tryEightToNine.innerText = 0; 
+    tryNineToTen.innerText = 0; 
+    tryTenToEleven.innerText = 0; 
+    tryElevenToTwelve.innerText = 0; 
+    tryTwelveToThirteen.innerText = 0; 
+    tryThirteenToFourteen.innerText = 0; 
+    tryFourteenToFifteen.innerText = 0; 
+    tryFifteenToSixteen.innerText = 0; 
+    trySixteenToSeventeen.innerText = 0; 
+    trySeventeenToEighteen.innerText = 0; 
+    tryEighteenToNineteen.innerText = 0; 
+    tryNineteenToTwenty.innerText = 0; 
 }
 
-function printPercentage(current_level){
-    sucess_rate_figure.textContent = suceess_rate_array[current_level];
-    fail_rate_figure.textContent = 100-suceess_rate_array[current_level];
+function printPercentage(currentLevel) {
+    sucessRateFigure.textContent = suceessRateArray[currentLevel];
+    failRateFigure.textContent = 100 - suceessRateArray[currentLevel];
 }
 
-function try_upgrade(){
-
+function tryUpgrade() {
     // 성공 시도하고자 하는 확률상태
-    const suceess_try_rate =  suceess_rate_array[current_level];
+    const suceessTryRate = suceessRateArray[currentLevel];
 
     // 1~100 까지의 숫자 (확률)
-    const random_value = Math.floor(Math.random()*100)+1;
+    const randomValue = Math.floor(Math.random() * 100) + 1;
     
-    if(random_value >= 1 && random_value <= suceess_try_rate){
-        // 강화 성공조건 : random_value가 sucess_try_rate 이하의 값을 가지는 경우
-        if(parseInt(current_upgrade_level.innerText) < MAX_LEVEL){
-            current_upgrade_level.innerText = parseInt(current_upgrade_level.innerText)+1;
+    if(randomValue >= 1 && randomValue <= suceessTryRate) {
+        // 강화 성공조건 : randomValue가 sucess_try_rate 이하의 값을 가지는 경우
+        if(parseInt(currentUpgradeLevel.innerText) < MAX_LEVEL) {
+            currentUpgradeLevel.innerText = parseInt(currentUpgradeLevel.innerText) + 1;
             // alert("강화 성공");
-            // current_level -> current_level + 1 의 시도도, 시도횟수로 사용
-            try_count_array[current_level] += 1;
+            // currentLevel -> currentLevel + 1 의 시도도, 시도횟수로 사용
+            tryCountArray[currentLevel] += 1;
 
             // 테이블 시도횟수 갱신
-            overallSwitchTable(current_level);
-            current_level++;
+            overallSwitchTable(currentLevel);
+            currentLevel++;
 
             // 증가된 강화상태에 대한 확률 표기 변경
-            printPercentage(current_level);
+            printPercentage(currentLevel);
 
-            if(current_level === MAX_LEVEL){
+            if(currentLevel === MAX_LEVEL) {
                 // MAX_LEVEL 달성 시, 사용자가 버튼 클릭을 하지 못하도록 변경 
-                alert(`최대 강화 레벨을 달성하셨습니다.`);
-                try_btn.disabled = true;
+                alert('최대 강화 레벨을 달성하셨습니다.');
+                tryBtn.disabled = true;
 
-                // current_level === 20 일때, 확률표기
-                sucess_rate_figure.textContent = 0;
-                fail_rate_figure.textContent = 0;
-                
+                // currentLevel === 20 일때, 확률표기
+                sucessRateFigure.textContent = 0;
+                failRateFigure.textContent = 0;
             }
         } else{
             // btn을 disabled 처리한 것으로, else문 대신
         }
     } else{
-        // 강화 실패조건 : random_value가 sucess_try_rate 초과의 값을 가지는 경우
+        // 강화 실패조건 : randomValue가 sucess_try_rate 초과의 값을 가지는 경우
         // alert("강화 실패");
 
-        // current_level의 배열위치에 시도횟수 증가
-        try_count_array[current_level] += 1;
-        overallSwitchTable(current_level);
+        // currentLevel의 배열위치에 시도횟수 증가
+        tryCountArray[currentLevel] += 1;
+        overallSwitchTable(currentLevel);
 
         // 초기화되므로, 강화버튼 사용 복구
-        try_btn.disabled = false;
-
+        tryBtn.disabled = false;
     }
 }
 
-function try_reset(){
-    current_upgrade_level.innerText = 0;
-    current_level = 0;
-    try_count_array.fill(0);
+function tryReset() {
+    currentUpgradeLevel.innerText = 0;
+    currentLevel = 0;
+    tryCountArray.fill(0);
     resetTable();
 
     // 초기화된 강화상태에 대한 확률 표기 변경
-    printPercentage(current_level);
-    alert("초기화되었습니다!");
+    printPercentage(currentLevel);
+    alert('초기화되었습니다!');
 }
 
-/*add eventListener*/
-try_btn.addEventListener('click',try_upgrade);
-reset_btn.addEventListener('click',try_reset);
+/* add eventListener */
+tryBtn.addEventListener('click', tryUpgrade);
+resetBtn.addEventListener('click', tryReset);
 
 // 최초실행
-printPercentage(current_level);
+printPercentage(currentLevel);

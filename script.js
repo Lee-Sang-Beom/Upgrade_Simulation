@@ -16,6 +16,7 @@ const resetBtn = document.getElementById('reset_btn');
 
 // 단계별 성공확률
 const suceessRateArray = [100, 95, 90, 85, 80, 75, 70, 60, 50, 40, 35, 30, 25, 20, 15, 10, 5, 3, 2, 1];
+// const suceessRateArray = [100, 95, 90, 85, 80, 75, 70, 60, 70, 70, 75, 70, 75, 70, 65, 100, 50, 30, 20, 10]; // TEST CODE
 
 // 시도횟수 저장 배열
 const tryCountArray = Array.from(new Array(20), (v, k) => {
@@ -140,6 +141,8 @@ function resetTable() {
     trySeventeenToEighteen.innerText = 0; 
     tryEighteenToNineteen.innerText = 0; 
     tryNineteenToTwenty.innerText = 0; 
+
+    tryBtn.disabled = false;
 }
 
 function printPercentage(currentLevel) {
@@ -203,6 +206,10 @@ function tryReset() {
     // 초기화된 강화상태에 대한 확률 표기 변경
     printPercentage(currentLevel);
     alert('초기화되었습니다!');
+
+    // 초기화 시, 버튼은 선택 가능해야 함
+    tryBtn.disabled = false;
+    resetBtn.disabled = false;
 }
 
 /* add eventListener */

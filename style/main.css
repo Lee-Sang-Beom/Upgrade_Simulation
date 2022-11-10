@@ -23,7 +23,7 @@
   border: 1px solid white;
   border-radius: 18px;
 }
-.main .main_left .main_upper_area {
+.main .main_left .main_upper_section {
   width: 100%;
   height: 50%;
   display: flex;
@@ -31,22 +31,22 @@
   justify-content: center;
   align-items: center;
 }
-.main .main_left .main_upper_area .current_figure {
+.main .main_left .main_upper_section .current_figure {
   transition: font-size 0.5s ease-in-out 0.05s;
   margin-bottom: 1rem;
   font-size: 2.5rem;
   font-weight: 700;
   color: rgb(41, 41, 41);
 }
-.main .main_left .main_upper_area .current_figure::before {
+.main .main_left .main_upper_section .current_figure::before {
   content: "+";
 }
-.main .main_left .main_upper_area img {
+.main .main_left .main_upper_section img {
   width: 25%;
   transition: border-radius 0.8s ease-in-out 0.05s;
   border-radius: 50%;
 }
-.main .main_left .main_upper_area h2 {
+.main .main_left .main_upper_section h2 {
   position: relative;
   left: -3px;
   font-size: 1.2rem;
@@ -55,7 +55,7 @@
   font-family: "Jua";
   transition: font-size 0.5s ease-in-out 0.05s;
 }
-.main .main_left .main_bottom_area {
+.main .main_left .main_bottom_section {
   transition: width 0.5s ease-in-out 0.05s;
   transition: height 0.5s ease-in-out 0.05s;
   position: relative;
@@ -65,7 +65,7 @@
   border-radius: 25%;
   border: 1px solid rgb(71, 172, 255);
 }
-.main .main_left .main_bottom_area .success_rate {
+.main .main_left .main_bottom_section .success_rate {
   position: absolute;
   width: 100%;
   top: 35%;
@@ -76,22 +76,22 @@
   letter-spacing: 1px;
   font-family: "Jua";
 }
-.main .main_left .main_bottom_area .success_rate .rate_text {
+.main .main_left .main_bottom_section .success_rate .rate_text {
   font-size: 1rem;
   font-weight: 600;
   margin-right: 10px;
   transition: font-size 0.5s ease-in-out 0.05s;
 }
-.main .main_left .main_bottom_area .success_rate .rate_figure {
+.main .main_left .main_bottom_section .success_rate .rate_figure {
   font-size: 1rem;
   font-weight: bold;
   color: rgb(255, 77, 77);
   transition: font-size 0.5s ease-in-out 0.05s;
 }
-.main .main_left .main_bottom_area .success_rate .rate_figure::after {
+.main .main_left .main_bottom_section .success_rate .rate_figure::after {
   content: "%";
 }
-.main .main_left .main_bottom_area .fail_rate {
+.main .main_left .main_bottom_section .fail_rate {
   position: absolute;
   width: 100%;
   top: 45%;
@@ -102,22 +102,22 @@
   letter-spacing: 1px;
   font-family: "Jua";
 }
-.main .main_left .main_bottom_area .fail_rate .rate_text {
+.main .main_left .main_bottom_section .fail_rate .rate_text {
   font-size: 1rem;
   font-weight: 600;
   margin-right: 10px;
   transition: font-size 0.5s ease-in-out 0.05s;
 }
-.main .main_left .main_bottom_area .fail_rate .rate_figure {
+.main .main_left .main_bottom_section .fail_rate .rate_figure {
   font-size: 1rem;
   font-weight: bold;
   color: rgb(255, 77, 77);
   transition: font-size 0.5s ease-in-out 0.05s;
 }
-.main .main_left .main_bottom_area .fail_rate .rate_figure::after {
+.main .main_left .main_bottom_section .fail_rate .rate_figure::after {
   content: "%";
 }
-.main .main_left .main_bottom_area .try_btn {
+.main .main_left .main_bottom_section .try_btn {
   letter-spacing: 1px;
   font-family: "Jua";
   position: absolute;
@@ -131,13 +131,13 @@
   cursor: pointer;
   transition: font-size 0.5s ease-in-out 0.05s;
 }
-.main .main_left .main_bottom_area .try_btn:hover {
+.main .main_left .main_bottom_section .try_btn:hover {
   font-size: 1rem;
 }
-.main .main_left .main_bottom_area .try_btn:disabled {
+.main .main_left .main_bottom_section .try_btn:disabled {
   background: #ccc;
 }
-.main .main_left .main_bottom_area .reset_btn {
+.main .main_left .main_bottom_section .reset_btn {
   letter-spacing: 1px;
   font-family: "Jua";
   position: absolute;
@@ -151,7 +151,7 @@
   cursor: pointer;
   transition: font-size 0.5s ease-in-out 0.05s;
 }
-.main .main_left .main_bottom_area .reset_btn:hover {
+.main .main_left .main_bottom_section .reset_btn:hover {
   font-size: 1rem;
 }
 .main .main_right {
@@ -189,44 +189,44 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .main .main_left .main_upper_area .current_figure {
+  .main .main_left .main_upper_section .current_figure {
     transition: font-size 0.5s ease-in-out 0.05s;
     font-size: 1.6rem;
   }
-  .main .main_left .main_upper_area img {
+  .main .main_left .main_upper_section img {
     transition: border-radius 0.8s ease-in-out 0.05s;
     border-radius: 25%;
   }
-  .main .main_left .main_upper_area h2 {
+  .main .main_left .main_upper_section h2 {
     transition: font-size 0.5s ease-in-out 0.05s;
     font-size: 1rem;
   }
-  .main .main_left .main_bottom_area .success_rate .rate_text {
+  .main .main_left .main_bottom_section .success_rate .rate_text {
     font-size: 1rem;
     transition: font-size 0.5s ease-in-out 0.05s;
   }
-  .main .main_left .main_bottom_area .success_rate .rate_figure {
+  .main .main_left .main_bottom_section .success_rate .rate_figure {
     font-size: 1rem;
     transition: font-size 0.5s ease-in-out 0.05s;
   }
-  .main .main_left .main_bottom_area .fail_rate .rate_text {
+  .main .main_left .main_bottom_section .fail_rate .rate_text {
     font-size: 1rem;
     transition: font-size 0.5s ease-in-out 0.05s;
   }
-  .main .main_left .main_bottom_area .fail_rate .rate_figure {
+  .main .main_left .main_bottom_section .fail_rate .rate_figure {
     font-size: 1rem;
     transition: font-size 0.5s ease-in-out 0.05s;
   }
-  .main .main_left .main_bottom_area .try_btn {
+  .main .main_left .main_bottom_section .try_btn {
     font-size: 0.7rem;
   }
-  .main .main_left .main_bottom_area .try_btn:hover {
+  .main .main_left .main_bottom_section .try_btn:hover {
     font-size: 0.8rem;
   }
-  .main .main_left .main_bottom_area .reset_btn {
+  .main .main_left .main_bottom_section .reset_btn {
     font-size: 0.7rem;
   }
-  .main .main_left .main_bottom_area .reset_btn:hover {
+  .main .main_left .main_bottom_section .reset_btn:hover {
     font-size: 0.8rem;
   }
 }
@@ -239,35 +239,35 @@
     width: 100%;
     height: 50%;
   }
-  .main .main_left .main_upper_area svg {
+  .main .main_left .main_upper_section svg {
     display: none;
   }
-  .main .main_left .main_upper_area img {
+  .main .main_left .main_upper_section img {
     width: 15%;
   }
-  .main .main_left .main_upper_area h2 {
+  .main .main_left .main_upper_section h2 {
     margin: 15px 0 0 0;
     left: 0;
   }
-  .main .main_left .main_bottom_area {
+  .main .main_left .main_bottom_section {
     width: 70%;
     height: 35%;
   }
-  .main .main_left .main_bottom_area .success_rate {
+  .main .main_left .main_bottom_section .success_rate {
     margin-bottom: 5px;
   }
-  .main .main_left .main_bottom_area .fail_rate {
+  .main .main_left .main_bottom_section .fail_rate {
     margin: 5px 0;
   }
-  .main .main_left .main_bottom_area .wrap_btn {
+  .main .main_left .main_bottom_section .wrap_btn {
     display: flex;
   }
-  .main .main_left .main_bottom_area .wrap_btn .try_btn {
+  .main .main_left .main_bottom_section .wrap_btn .try_btn {
     top: 75%;
     left: 35%;
     font-size: 0.5rem;
   }
-  .main .main_left .main_bottom_area .wrap_btn .reset_btn {
+  .main .main_left .main_bottom_section .wrap_btn .reset_btn {
     top: 75%;
     left: 65%;
     font-size: 0.5rem;
@@ -306,38 +306,38 @@
   }
 }
 @media screen and (max-width: 400px) {
-  .main .main_left .main_upper_area h2 {
+  .main .main_left .main_upper_section h2 {
     margin: 15px 0 0 0;
     left: 0;
     font-size: 0.9rem;
   }
-  .main .main_left .main_bottom_area {
+  .main .main_left .main_bottom_section {
     width: calc(100% - 1px);
     height: 25%;
     border-radius: 0;
   }
-  .main .main_left .main_bottom_area .success_rate {
+  .main .main_left .main_bottom_section .success_rate {
     margin-bottom: 5px;
   }
-  .main .main_left .main_bottom_area .success_rate .rate_text {
+  .main .main_left .main_bottom_section .success_rate .rate_text {
     font-size: 0.8rem;
   }
-  .main .main_left .main_bottom_area .success_rate .rate_figure {
+  .main .main_left .main_bottom_section .success_rate .rate_figure {
     font-size: 0.8rem;
   }
-  .main .main_left .main_bottom_area .fail_rate {
+  .main .main_left .main_bottom_section .fail_rate {
     margin: 5px 0;
   }
-  .main .main_left .main_bottom_area .fail_rate .rate_text {
+  .main .main_left .main_bottom_section .fail_rate .rate_text {
     font-size: 0.8rem;
   }
-  .main .main_left .main_bottom_area .fail_rate .rate_figure {
+  .main .main_left .main_bottom_section .fail_rate .rate_figure {
     font-size: 0.8rem;
   }
-  .main .main_left .main_bottom_area .wrap_btn .try_btn {
+  .main .main_left .main_bottom_section .wrap_btn .try_btn {
     left: 30%;
   }
-  .main .main_left .main_bottom_area .wrap_btn .reset_btn {
+  .main .main_left .main_bottom_section .wrap_btn .reset_btn {
     left: 70%;
   }
 }/*# sourceMappingURL=main.css.map */

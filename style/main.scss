@@ -41,7 +41,7 @@ $table-border-color: #008cba;
         border:1px solid white;
         border-radius: 18px;
         
-        .main_upper_area{
+        .main_upper_section{
             width: 100%;
             height: 50%;
 
@@ -82,7 +82,7 @@ $table-border-color: #008cba;
 
         }
 
-        .main_bottom_area{
+        .main_bottom_section{
             transition: width 0.5s ease-in-out 0.05s;
             transition: height 0.5s ease-in-out 0.05s;
             position: relative;
@@ -251,7 +251,7 @@ $table-border-color: #008cba;
 @media screen and (max-width:1024px) {
     .main{
         .main_left{
-            .main_upper_area{
+            .main_upper_section{
                 .current_figure{
                     transition: font-size 0.5s ease-in-out 0.05s;
                     font-size: 1.6rem;
@@ -268,7 +268,7 @@ $table-border-color: #008cba;
                 }
             }
 
-            .main_bottom_area{
+            .main_bottom_section{
                 .success_rate{
                     .rate_text{
                         @include reduce_fontsize;
@@ -313,7 +313,7 @@ $table-border-color: #008cba;
             width: 100%;
             height: 50%;
 
-            .main_upper_area{
+            .main_upper_section{
                 svg{
                     display:none;
                 }
@@ -328,7 +328,7 @@ $table-border-color: #008cba;
                 }
             }
 
-            .main_bottom_area{
+            .main_bottom_section{
                 width: 70%;
                 height: 35%;
 
@@ -412,7 +412,7 @@ $table-border-color: #008cba;
 @media screen and (max-width: 400px) {
     .main{
         .main_left{
-            .main_upper_area{
+            .main_upper_section{
                 h2{
                     margin : 15px 0 0 0;
                     left:0;
@@ -420,7 +420,7 @@ $table-border-color: #008cba;
                 }
             }
 
-            .main_bottom_area{
+            .main_bottom_section{
                 width: calc(100% - 1px);
                 height: 25%;
                 border-radius: 0;

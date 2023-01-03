@@ -6,7 +6,7 @@
 
 
 /* container */
-.container{
+.container {
     position: relative;
     margin: 10vh auto;
     width: 1280px;
@@ -19,12 +19,12 @@
 }
 
 /* header */
-.header{
+.header {
     position: absolute;
     display: flex;
     align-items: center;
-    top:20px;
-    left:30px;
+    top: 20px;
+    left: 30px;
     width: 100%;
     height: 50px;
     color: white;
@@ -32,14 +32,13 @@
     /* left 30px, 좌우 대칭을 위한 right 30px */
     width: calc(100% - 30px - 30px);
     padding-left: 10px;
-    background-color: rgb(43,43,43);
+    background-color: rgb(43, 43, 43);
 
-    .header_wrap{
+    .header_wrap {
         position: relative;
         left: 10px;
 
-
-        .header_title::before{
+        .header_title::before {
             position: absolute;
             left: -10px;
 
@@ -47,15 +46,15 @@
 
             width: 3px;
             height: 22px;
-             
+
             background-color: white;
         }
 
-        .header_title{
+        .header_title {
             @include useFont;
             font-size: 1.5rem;
             font-weight: 700;
         }
     }
-    
+
 }
